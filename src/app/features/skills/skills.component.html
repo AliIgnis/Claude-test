@@ -1,0 +1,17 @@
+<section id="skills" class="section skills">
+  <div class="container">
+    <h2 class="section-heading" appScrollAnimate>{{ i18n.translations().skills.heading }}</h2>
+    <div class="skills-grid">
+      @for (cat of categories; track cat.key) {
+        <div class="skill-category" appScrollAnimate>
+          <h3>{{ getCategoryLabel(cat.key) }}</h3>
+          <div class="skill-tags">
+            @for (tag of cat.tags; track tag.name) {
+              <span class="skill-tag" [class.highlight]="tag.highlight">{{ tag.name }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

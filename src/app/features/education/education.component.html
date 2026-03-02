@@ -1,0 +1,26 @@
+<section id="education" class="section education">
+  <div class="container">
+    <h2 class="section-heading" appScrollAnimate>{{ i18n.translations().education.heading }}</h2>
+    <div class="education-grid">
+      <div class="education-card" appScrollAnimate>
+        <div class="education-icon">&#127891;</div>
+        <h3>{{ i18n.translations().education.degree }}</h3>
+      </div>
+      <div class="education-card" appScrollAnimate delay="0.1s">
+        <div class="education-icon">&#9729;&#65039;</div>
+        <h3>{{ i18n.translations().education.cert }}</h3>
+      </div>
+    </div>
+    <div class="languages-grid" appScrollAnimate>
+      @for (lang of languages; track lang.name) {
+        <div class="language-item">
+          <span class="language-name">{{ lang.name }}</span>
+          <div class="language-bar">
+            <div class="language-fill" [style.width.%]="lang.percent"></div>
+          </div>
+          <span class="language-level">{{ lang.level }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
