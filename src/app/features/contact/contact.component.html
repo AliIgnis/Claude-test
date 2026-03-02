@@ -1,0 +1,62 @@
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2 class="section-heading" appScrollAnimate>{{ i18n.translations().contact.heading }}</h2>
+    <p class="contact-subtitle" appScrollAnimate>{{ i18n.translations().contact.subtitle }}</p>
+    <div class="contact-grid">
+      <div class="contact-info" appScrollAnimate>
+        <div class="contact-item">
+          <span class="contact-label">E-Mail</span>
+          <a href="mailto:your.email&#64;example.com">your.email&#64;example.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">{{ i18n.translations().contact.phone }}</span>
+          <a href="tel:+49XXXXXXXXXX">+49 XXX XXXXXXXX</a>
+        </div>
+      </div>
+
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="contact-form"
+        appScrollAnimate
+        novalidate
+      >
+        <div class="form-group">
+          <label for="form-name">{{ i18n.translations().contact.name }}</label>
+          <input
+            type="text"
+            id="form-name"
+            formControlName="name"
+            [class.field-error]="contactForm.controls.name.touched && contactForm.controls.name.invalid"
+          />
+        </div>
+        <div class="form-group">
+          <label for="form-email">{{ i18n.translations().contact.email }}</label>
+          <input
+            type="email"
+            id="form-email"
+            formControlName="email"
+            [class.field-error]="contactForm.controls.email.touched && contactForm.controls.email.invalid"
+          />
+        </div>
+        <div class="form-group">
+          <label for="form-message">{{ i18n.translations().contact.message }}</label>
+          <textarea
+            id="form-message"
+            rows="5"
+            formControlName="message"
+            [class.field-error]="contactForm.controls.message.touched && contactForm.controls.message.invalid"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ i18n.translations().contact.send }}</button>
+
+        @if (formStatus() === 'error') {
+          <p class="form-message form-error">{{ getErrorMessage() }}</p>
+        }
+        @if (formStatus() === 'success') {
+          <p class="form-message form-success">{{ i18n.translations().contact.success }}</p>
+        }
+      </form>
+    </div>
+  </div>
+</section>

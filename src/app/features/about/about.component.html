@@ -1,0 +1,32 @@
+<section id="about" class="section about">
+  <div class="container">
+    <h2 class="section-heading" appScrollAnimate>{{ i18n.translations().about.heading }}</h2>
+    <div class="about-grid">
+      <div class="about-text" appScrollAnimate>
+        <p>{{ i18n.translations().about.text }}</p>
+        <p class="about-mission">{{ i18n.translations().about.mission }}</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="about-photo" appScrollAnimate>
+          <img
+            src="assets/profile.jpg"
+            alt="Ali Mahmood"
+            class="profile-image"
+            (error)="$event.target ? $any($event.target).style.display = 'none' : null"
+          />
+          <div class="photo-placeholder">
+            <span>AM</span>
+          </div>
+        </div>
+        <div class="about-highlights">
+          @for (item of highlights; track item.key) {
+            <div class="highlight-card" appScrollAnimate>
+              <span class="highlight-icon">{{ item.icon }}</span>
+              <span>{{ i18n.translations().about[item.key] }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,6 @@
 .git
-tests
 node_modules
+dist
 *.md
 .dockerignore
 Dockerfile

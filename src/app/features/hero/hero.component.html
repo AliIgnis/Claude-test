@@ -1,0 +1,21 @@
+<section id="hero" class="hero">
+  <div class="container hero-content">
+    <p class="hero-greeting" appScrollAnimate>{{ i18n.translations().hero.greeting }}</p>
+    <h1 class="hero-name" appScrollAnimate delay="0.1s">Ali Mahmood</h1>
+    <h2 class="hero-title" appScrollAnimate delay="0.2s">{{ i18n.translations().hero.title }}</h2>
+    <p class="hero-subtitle" appScrollAnimate delay="0.3s">{{ i18n.translations().hero.subtitle }}</p>
+    <div class="hero-actions" appScrollAnimate delay="0.4s">
+      <a href="#projects" class="btn btn-primary">{{ i18n.translations().hero.cta }}</a>
+      <a href="#contact" class="btn btn-outline">{{ i18n.translations().hero.contact }}</a>
+      <a href="assets/cv.pdf" download class="btn btn-secondary">
+        <span class="download-icon">&#8681;</span>
+        {{ i18n.translations().hero.downloadCv }}
+      </a>
+    </div>
+  </div>
+  <div class="hero-decoration">
+    <div class="hero-circle hero-circle-1"></div>
+    <div class="hero-circle hero-circle-2"></div>
+    <div class="hero-circle hero-circle-3"></div>
+  </div>
+</section>

@@ -1,0 +1,207 @@
+/* ==========================================================================
+   CSS Custom Properties - Japanese Color Palette with Dark Mode
+   梅鼠 (Umenezumi)  - Light Brown Drab   - #B4846C
+   蕗色 (Fukiiro)    - Ochraceous Salmon  - #D4A24E
+   白緑 (Byakuroku)  - Turquoise Green    - #93C9B1
+   ========================================================================== */
+
+:root {
+  /* Dark surface (always used for header/hero/footer) */
+  --color-dark: #1a1a2e;
+  --color-dark-rgb: 26, 26, 46;
+  --color-dark-soft: #2d2d44;
+
+  /* Accent palette */
+  --color-accent-muted: #B4846C;
+  --color-accent-warm: #D4A24E;
+  --color-accent-warm-light: #e8c98a;
+  --color-accent-cool: #93C9B1;
+  --color-accent-cool-light: #c8e4d8;
+  --color-accent-cool-faint: #eef7f3;
+
+  /* Semantic tokens — light theme defaults */
+  --color-text: #333340;
+  --color-text-light: #6b6b7b;
+  --color-heading: #1a1a2e;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-border: #e8e8ee;
+
+  /* Typography */
+  --font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-size-base: 1rem;
+  --line-height: 1.7;
+
+  /* Spacing */
+  --section-padding: 6rem 0;
+  --container-width: 1100px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
+}
+
+/* ==========================================================================
+   Dark Theme
+   ========================================================================== */
+
+[data-theme="dark"] {
+  --color-text: #d1d1e0;
+  --color-text-light: #9494a8;
+  --color-heading: #e8e8f0;
+  --color-bg: #16162a;
+  --color-bg-alt: #1e1e38;
+  --color-border: #2d2d50;
+  --color-accent-cool-faint: rgba(147, 201, 177, 0.08);
+  --color-accent-warm-light: rgba(212, 162, 78, 0.25);
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background: var(--color-bg);
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+a {
+  color: var(--color-accent-warm);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-accent-muted);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: var(--section-padding);
+
+  &:nth-child(even) {
+    background: var(--color-bg-alt);
+  }
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: var(--color-accent-warm);
+    border-radius: 2px;
+  }
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 2px solid transparent;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-accent-warm);
+  color: var(--color-dark);
+  border-color: var(--color-accent-warm);
+
+  &:hover {
+    background: transparent;
+    color: var(--color-accent-warm);
+    border-color: var(--color-accent-warm);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent-cool);
+  border-color: var(--color-accent-cool);
+
+  &:hover {
+    background: var(--color-accent-cool);
+    color: var(--color-dark);
+  }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 0;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+}
