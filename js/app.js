@@ -9,11 +9,12 @@ PortfolioApp.App = (function() {
     var lang = PortfolioApp.I18n.init(PortfolioApp.Translations, "de");
     PortfolioApp.Navigation.init();
     PortfolioApp.ProjectRenderer.init();
-    PortfolioApp.Animations.init();
 
     _renderProjects(lang);
     _bindLanguageToggle();
     _bindContactForm();
+
+    PortfolioApp.Animations.init();
 
     PortfolioApp.I18n.onLanguageChange(function(newLang) {
       _renderProjects(newLang);
