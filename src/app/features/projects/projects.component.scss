@@ -25,7 +25,7 @@
 
 .timeline-dot {
   position: absolute;
-  left: -2.55rem;
+  left: calc(-2rem - 5px);
   top: 0.3rem;
   width: 12px;
   height: 12px;
@@ -33,6 +33,7 @@
   background: var(--color-accent-muted);
   border: 2px solid var(--color-bg);
   box-shadow: 0 0 0 2px var(--color-accent-muted);
+  z-index: 1;
 
   &.current {
     background: var(--color-accent-warm);
