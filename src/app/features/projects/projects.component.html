@@ -4,8 +4,8 @@
     <div class="timeline">
       @for (project of projects; track project.company; let i = $index) {
         <div class="timeline-item" appScrollAnimate [delay]="(i * 0.1) + 's'">
+          <div class="timeline-dot" [class.current]="i === 0"></div>
           <div class="timeline-content">
-            <div class="timeline-dot" [class.current]="i === 0"></div>
             <div class="timeline-header">
               <h3>{{ project.company }}</h3>
               <span class="timeline-period">{{ project.period }}</span>
